@@ -6,7 +6,7 @@ The idea is simple: instead of just trusting a model, I also try to match the in
 
 ---
 ## 🌐 Live Demo
-👉 https://fake-news-detector46.streamlit.app
+👉 https://ParseTruth.streamlit.app
 
 ---
 
