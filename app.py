@@ -7,9 +7,42 @@ from sklearn.metrics.pairwise import cosine_similarity
  
 # LOAD MODEL
  
-model = pickle.load(open("model.pkl", "rb"))
+@st.cache_resource
+def load_model():
+    model = pickle.load(open("model.pkl", "rb"))
+    vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+    return model, vectorizer
+
+model, vectorizer = load_model()
 vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
 
+import base64
+
+def set_bg(image_file):
+    with open(image_file, "rb") as file:
+        encoded = base64.b64encode(file.read()).decode()
+
+    page_bg = f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/png;base64,{encoded}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }}
+
+    /* Make text readable */
+    .block-container {{
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 2rem;
+        border-radius: 10px;
+        backdrop-filter: blur(5px);
+    }}
+    </style>
+    """
+
+    st.markdown(page_bg, unsafe_allow_html=True)
  
 # TEXT CLEANING
  
@@ -60,16 +93,90 @@ def predict_news(text):
 # UI CONFIG
  
 st.set_page_config(page_title="Fake News Detector", page_icon="📰")
+set_bg("assets/bg.png")
+st.markdown("""
+<style>
 
-st.title("📰 Fake News Detection System")
+/* Background already handled */
+
+/* Center main container */
+.block-container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+/* Title styling */
+.title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Subtitle */
+.subtitle {
+    text-align: center;
+    color: #cccccc;
+    margin-bottom: 20px;
+}
+
+/* Text area */
+textarea {
+    background-color: rgba(255,255,255,0.1) !important;
+    color: white !important;
+    border-radius: 10px !important;
+}
+
+/* Button */
+div.stButton > button {
+    width: 100%;
+    background: linear-gradient(90deg, #4CAF50, #2E7D32);
+    color: white;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* Result cards */
+.result-box {
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+/* Success */
+.success {
+    background: rgba(0, 255, 0, 0.2);
+}
+
+/* Error */
+.error {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+/* Warning */
+.warning {
+    background: rgba(255, 165, 0, 0.2);
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<div class="title">📰 Fake News Detector</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">AI-powered news verification with real-time validation</div>', unsafe_allow_html=True)
 st.markdown("Check whether a news statement is **likely real or fake** using AI + real-time verification.")
 
-input_text = st.text_area(" Enter news text:")
+input_text = st.text_area(" Enter news headline or content", height=150)
 st.caption("Tip: Use short, keyword-rich headlines for better results.")
 
  
 # BUTTON ACTION
- 
  
 if st.button("Analyze"):
     if input_text.strip() == "":
