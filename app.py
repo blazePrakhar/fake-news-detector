@@ -27,14 +27,13 @@ def set_bg(image_file):
     .stApp {{
         background-image: url("data:image/png;base64,{encoded}");
         background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        filter: brightness(0.8) contrast(1.1);
         background-attachment: fixed;
     }}
 
     /* Make text readable */
     .block-container {{
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.6);
         padding: 2rem;
         border-radius: 10px;
         backdrop-filter: blur(5px);
