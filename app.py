@@ -91,7 +91,7 @@ def predict_news(text):
  
 # UI CONFIG
  
-st.set_page_config(page_title="Fake News Detector", page_icon="📰")
+st.set_page_config(page_title="ParseTruth", page_icon="📰")
 set_bg("assets/bg.png")
 st.markdown("""
 <style>
@@ -167,7 +167,7 @@ div.stButton > button {
 </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="title">📰 Fake News Detector</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">ParseTruth</div>', unsafe_allow_html=True)
 st.markdown('<div class="subtitle">AI-powered news verification with real-time validation</div>', unsafe_allow_html=True)
 st.markdown("Check whether a news statement is **likely real or fake** using AI + real-time verification.")
 
@@ -258,3 +258,8 @@ if st.button("Analyze"):
 
         else:
             st.warning("   Uncertain – cannot verify confidently")
+
+st.markdown("""
+---
+Made with tech and brain | ParseTruth
+""")
