@@ -5,6 +5,26 @@ This is a small project I built to check whether a news headline is likely real 
 The idea is simple: instead of just trusting a model, I also try to match the input with current news articles to make the result more reliable.
 
 ---
+## 🌐 Live Demo
+👉 https://fake-news-detector46.streamlit.app
+
+---
+
+## 🎥 Demo
+![Demo](assets/demo.gif)
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Screen
+![Home](assets/screenshots/home.png)
+
+### 📊 Analysis Result
+![Result](assets/screenshots/result.png)
+
+### 📰 News Verification
+![News](assets/screenshots/news.png)
 
 ## 🚀 What it does
 
