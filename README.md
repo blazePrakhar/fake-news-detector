@@ -1,16 +1,21 @@
-# 📰 Fake News Detector
+# ParseTruth
+
+AI-powered news verification system.
 
 This is a small project I built to check whether a news headline is likely real or fake using machine learning + some real-time verification.
 
 The idea is simple: instead of just trusting a model, I also try to match the input with current news articles to make the result more reliable.
 
 ---
+
 ## 🌐 Live Demo
+
 👉 https://ParseTruth.streamlit.app
 
 ---
 
 ## 🎥 Demo
+
 ![Demo](assets/demo.gif)
 
 ---
@@ -18,13 +23,18 @@ The idea is simple: instead of just trusting a model, I also try to match the in
 ## 📸 Screenshots
 
 ### 🏠 Home Screen
+
 ![Home](assets/screenshots/home.png)
 
 ### 📊 Analysis Result
+
 ![Result](assets/screenshots/result.png)
 
 ### 📰 News Verification
+
 ![News](assets/screenshots/news.png)
+
+---
 
 ## 🚀 What it does
 
@@ -53,17 +63,17 @@ Not perfect, but works decently for most cases.
 ## 🛠️ Tech used
 
 * Python
-* Streamlit (for UI)
+* Streamlit
 * scikit-learn
 * requests
-* some basic NLP
+* basic NLP
 
 ---
 
 ## 📂 Project structure
 
 ```
-fake-news-detector/
+ParseTruth/
 │
 ├── app.py
 ├── model.pkl
@@ -80,8 +90,8 @@ fake-news-detector/
 Clone the repo:
 
 ```
-git clone https://github.com/your-username/fake-news-detector.git
-cd fake-news-detector
+git clone https://github.com/blazePrakhar/ParseTruth.git
+cd ParseTruth
 ```
 
 Create virtual environment:
@@ -138,8 +148,8 @@ streamlit run app.py
 
 ## 👨‍💻 About
 
-Made this while learning ML + building real projects.
-Still improving it.
+Built while exploring machine learning and real-world applications.
+Still improving and experimenting with better approaches.
 
 ---
 
